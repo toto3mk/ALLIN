@@ -1,66 +1,26 @@
 
 /*create integer array (1, 2, 2, 3, 3, 3) and count the frequency of each element */
 
-public class tt {
+public class j {
+
     public static void main(String[] args) {
+        int aar[] = { 1, 2, 2, 3, 3, 3 };
 
-        int n[] = { 1, 2, 2, 3, 3, 3 };
-        int visited[] = new int[6];
-        int visitedFlag = -1;
+        
 
-        for (int i = 0; i < n.length; i++) {
-            if (visited[i] == visitedFlag) {
-                continue;
-            }
-
-            int count = 1;
-            for (int j = i + 1; j < n.length; j++) {
-                if (n[i] == n[j]) {
-                    count++;
-                    visited[j] = visitedFlag;
+        for (int i = 0; i < aar.length - 1; i++) {
+            int c = 1;
+            for (int j = i + 1; j < aar.length; j++) {
+                if (aar[i] == aar[j]) {
+                    c++;
+                    aar[j] = -1;
                 }
             }
 
-            System.out.println(n[i] + " appears " + count + " times");
-        }
-    }
-}
-
-======================================================================================
-
-/*create integer array ( 1 ,2 ,2 ,3 ,3 ,3) and count the frequancy of each element */
-// another way of solving it ******************
-
-public class tt {
-    public static void main(String[] args) {
-
-        int n[] = { 1, 2, 2, 3, 3, 3 }; //6
-        int f[] = new int[6]; // 6 = n.length
-        int c = 0; // 1
-
-        for (int i = 0; i < n.length; i++) {
-            int t = 0;
-            for (int j = 0; j < n.length; j++) { 
-                if (n[i] == n[j]) {
-                    t++;
-                }
-            }// first loop : t = 1 // second loop : t = 2 
-
-            boolean d = false;
-            for (int j = 0; j < c; j++) {
-                if (n[i] == f[j]) {
-                    d = true;
-                    break;
-                }
-            }
-
-            if (!d) { // if d is false
-                f[c] = n[i]; // store n[i] in f[c]
-                c++;
-                System.out.println(n[i] + " appears " + t + " times");
+            if (c > 1 && aar[i] != -1) {
+                System.out.println("Duplicated element: " + aar[i] + " : " + c + " times");
             }
         }
-
     }
 }
 
@@ -348,18 +308,12 @@ public class j {
 
         Scanner t = new Scanner(System.in);
 
-        int n[] = new int[5];
+        int e[] = new int[5];
 
         System.out.println("enter 5 integer numbers for array:");
 
-        for (int i = 0; i < n.length; i++) {
-            n[i] = t.nextInt();
-        }
-
-        int[] e = new int[5];
-
-        for (int i = 0; i < n.length; i++) {
-            e[i] = n[i];
+        for (int i = 0; i < e.length; i++) {
+            e[i] = t.nextInt();
         }
 
         for (int i = 0; i < 2; i++) {
