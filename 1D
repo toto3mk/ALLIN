@@ -1,0 +1,381 @@
+
+/*create integer array (1, 2, 2, 3, 3, 3) and count the frequency of each element */
+
+public class tt {
+    public static void main(String[] args) {
+
+        int n[] = { 1, 2, 2, 3, 3, 3 };
+        int visited[] = new int[6];
+        int visitedFlag = -1;
+
+        for (int i = 0; i < n.length; i++) {
+            if (visited[i] == visitedFlag) {
+                continue;
+            }
+
+            int count = 1;
+            for (int j = i + 1; j < n.length; j++) {
+                if (n[i] == n[j]) {
+                    count++;
+                    visited[j] = visitedFlag;
+                }
+            }
+
+            System.out.println(n[i] + " appears " + count + " times");
+        }
+    }
+}
+
+======================================================================================
+
+/*create integer array ( 1 ,2 ,2 ,3 ,3 ,3) and count the frequancy of each element */
+// another way of solving it ******************
+
+public class tt {
+    public static void main(String[] args) {
+
+        int n[] = { 1, 2, 2, 3, 3, 3 }; //6
+        int f[] = new int[6]; // 6 = n.length
+        int c = 0; // 1
+
+        for (int i = 0; i < n.length; i++) {
+            int t = 0;
+            for (int j = 0; j < n.length; j++) { 
+                if (n[i] == n[j]) {
+                    t++;
+                }
+            }// first loop : t = 1 // second loop : t = 2 
+
+            boolean d = false;
+            for (int j = 0; j < c; j++) {
+                if (n[i] == f[j]) {
+                    d = true;
+                    break;
+                }
+            }
+
+            if (!d) { // if d is false
+                f[c] = n[i]; // store n[i] in f[c]
+                c++;
+                System.out.println(n[i] + " appears " + t + " times");
+            }
+        }
+
+    }
+}
+
+======================================================================================
+
+/* Create integer array (0, 1, 0, 3, 12) then Shift All Zeroes to the End:*/
+public class tt {
+    public static void main(String[] args) {
+
+        int[] n = { 0, 1, 0, 3, 12 };
+        int c = 0;
+
+        for (int i = 0; i < n.length; i++) {
+            if (n[i] != 0) {
+                n[c] = n[i];
+                c++;
+            }
+        }
+
+        while (c < n.length) {
+            n[c] = 0;
+            c++;
+        }
+
+        for (int i = 0; i < n.length; i++) {
+            System.out.println(n[i]);
+        }
+
+    }
+}
+
+======================================================================================
+
+/* Create any two integer array from Keyboard , then Merge Two Sorted  
+Arrays*/
+
+import java.util.Scanner;
+
+public class tt {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int n[] = new int[5];
+        int m[] = new int[5];
+        int c = 0;
+
+        System.out.println("enter 5 integer numbers for first array:");
+
+        for (int i = 0; i < n.length; i++) {
+            n[i] = t.nextInt();
+        }
+
+        System.out.println("enter 5 integer numbers for second array:");
+
+        for (int i = 0; i < m.length; i++) {
+            m[i] = t.nextInt();
+        }
+
+        int[] e = new int[10];
+
+        for (int i = 0; i < n.length; i++) {
+            e[i] = n[i];
+        }
+
+        for (int i = 0; i < m.length; i++) {
+            e[i + 5] = m[i];
+        }
+
+        for (int i = 0; i < e.length; i++) {
+            for (int j = i + 1; j < e.length; j++) {
+                if (e[i] > e[j]) {
+                    int sw = e[i];
+                    e[i] = e[j];
+                    e[j] = sw;
+                }
+            }
+        }
+
+        System.out.println("merged And sorted array:");
+        for (int i = 0; i < e.length; i++) {
+            System.out.println(e[i]);
+        }
+
+    }
+}
+
+======================================================================================
+
+/*Create array (1, 2, 3, 4, 5, 6) then Split an Array into Two Halves:  */
+public class j {
+    public static void main(String[] args) {
+
+        int array[] = { 1, 2, 3, 4, 5, 6 };
+        int arrayA[] = new int[3];
+        int arrayB[] = new int[3];
+
+        for (int i = 0; i < 3; i++) {
+            arrayA[i] = array[i];
+        }
+
+        for (int i = 3; i < 6; i++) {
+            arrayB[i - 3] = array[i];
+        }
+
+        System.out.println("array A");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(arrayA[i] + " ");
+        }
+
+        System.out.println("\narray B");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(arrayB[i] + " ");
+        }
+        System.out.println();
+
+    }
+}
+
+======================================================================================
+
+/*Create array from Key board then Sum of All Elements: */
+import java.util.Scanner;
+
+public class j {
+    public static void main(String[] args) {
+        Scanner t = new Scanner(System.in);
+        int n[] = new int[5];
+        int sum = 0;
+        System.out.println("enter 5 integer numbers:");
+        for (int i = 0; i < n.length; i++) {
+            n[i] = t.nextInt();
+            sum += n[i];
+        }
+        System.out.println("sum of all elements: " + sum);
+
+    }
+}
+
+======================================================================================
+
+/*Create array (10, 20, 4, 45, 99) then , Find Second Largest Element  
+Without Sorting: */
+
+public class tt {
+    public static void main(String[] args) {
+
+        int n[] = { 10, 20, 4, 45, 99 };
+        int l = n[0];
+        int sl = n[0];
+
+        for (int i = 1; i < n.length; i++) {
+            if (n[i] > l) {
+                sl = l; // 10 //
+                l = n[i]; // 20 // 20
+            } else if (n[i] > sl) {
+                sl = n[i];
+            }
+            else if ( l == sl){
+                sl = n[i]; // 20
+            }
+        }
+
+        System.out.println("sec largest element is: " + sl);
+
+    }
+}
+
+
+======================================================================================
+
+/*Create any two arrays from keyboard then Check if Two Arrays Are Equal: */
+import java.util.Scanner;
+
+public class j {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int n[] = new int[5];
+        int m[] = new int[5];
+        int c = 0;
+
+        System.out.println("enter 5 integer numbers  (first array)");
+
+        for (int i = 0; i < n.length; i++) {
+            n[i] = t.nextInt();
+        }
+
+        System.out.println("enter 5 integer numbers  (second array)");
+
+        for (int i = 0; i < m.length; i++) {
+            m[i] = t.nextInt();
+        }
+
+        boolean isEq = true;
+
+        if (n.length == m.length) {
+            for (int i = 0; i < n.length; i++) {
+                if (n[i] != m[i]) {
+                    isEq = false;
+                    break;
+                }
+            }
+        } else {
+            isEq = false;
+        }
+
+        if (isEq) {
+            System.out.println("The two arrays are equal.");
+        } else {
+            System.out.println("The two arrays are not equal.");
+        }
+
+    }
+}
+
+======================================================================================
+
+/* Create array from the keyboard then print the array from second position after  
+that Find Missing number in Consecutive Integers:*/
+
+import java.util.Scanner;
+
+public class tt {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int n[] = new int[5];
+
+        System.out.println("enter 5 integer numbers for array:");
+
+        for (int i = 0; i < n.length; i++) {
+            n[i] = t.nextInt();
+        }
+
+        System.out.println("array from second position:");
+        for (int i = 1; i < n.length; i++) {
+            System.out.println(n[i]);
+        }
+
+        System.out.println("missing number in consecutive integers:");
+        for (int i = 0; i < n.length - 1; i++) {
+            if (n[i] + 1 != n[i + 1]) {
+                System.out.println(n[i] + 1);
+            }
+        }
+
+    }
+}
+
+======================================================================================
+
+/* create array from keyboard then Calculate Average Value */
+
+import java.util.Scanner;
+
+public class tt {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int a[] = new int[5];
+
+        for (int i = 0; i < a.length; i++) {
+            a[i] = t.nextInt();
+        }
+        float sum = 0;
+        for (int i = 0; i < a.length; i++) {
+            sum = sum + a[i];
+        }
+        float avg = sum / a.length;
+        System.out.println("avg Value:" + avg);
+    }
+}
+
+======================================================================================
+
+/*Create array then rotate Array to Left by Given Positions =2 */
+import java.util.Scanner;
+
+public class j {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int n[] = new int[5];
+
+        System.out.println("enter 5 integer numbers for array:");
+
+        for (int i = 0; i < n.length; i++) {
+            n[i] = t.nextInt();
+        }
+
+        int[] e = new int[5];
+
+        for (int i = 0; i < n.length; i++) {
+            e[i] = n[i];
+        }
+
+        for (int i = 0; i < 2; i++) {
+            int j, first;
+            first = e[0];
+            for (j = 0; j < e.length - 1; j++) {
+                e[j] = e[j + 1];
+            }
+            e[j] = first;
+        }
+
+        System.out.println("rotated array:");
+
+        for (int i = 0; i < e.length; i++) {
+            System.out.println(e[i]);
+        }
+
+    }
+}
