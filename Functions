@@ -1,0 +1,234 @@
+import java.util.Scanner;
+
+public class j {
+
+    public static boolean primeCheck(int n) {
+
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = n - 1; i > 1; i--) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+        System.out.println("Enter a number to check if it is prime: ");
+        int n = t.nextInt();
+
+        if (primeCheck(n)) {
+            System.out.println(n + " is a prime number.");
+        } else {
+            System.out.println(n + " is not a prime number.");
+        }
+
+    }
+}
+
+==========================================================================================
+
+import java.util.Scanner;
+
+public class j {
+
+    public static int checkTraficlight() {
+
+        Scanner t = new Scanner(System.in);
+        System.out.println("Enter the number of the traffic light (1 for Red, 2 for Yellow, 3 for Green): ");
+
+        int n = t.nextInt();
+        switch (n) {
+            case 1:
+                System.out.println("Red");
+                break;
+            case 2:
+                System.out.println("Yellow");
+                break;
+            case 3:
+                System.out.println("Green");
+                break;
+            default:
+                System.out.println("Invalid input");
+        }
+        return n;
+    }
+
+    public static void main(String[] args) {
+
+        checkTraficlight();
+
+    }
+}
+
+==============================================================================================
+
+import java.util.Scanner;
+
+public class j {
+
+    public static void findeven(int a[]) {
+
+        int c = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0) {
+                System.out.print(a[i] + " , ");
+                c++;
+            }
+        }
+        if (c == 0) {
+            System.out.println("No even numbers found");
+        }
+    }
+
+    public static void findodd(int a[]) {
+
+        int c = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 != 0) {
+                System.out.print(a[i] + " , ");
+                c++;
+            }
+        }
+        if (c == 0) {
+            System.out.println("No odd numbers found");
+        }
+    }
+
+    public static void findnegative(int a[]) {
+
+        int c = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] < 0) {
+                System.out.print(a[i] + " , ");
+                c++;
+            }
+        }
+        if (c == 0) {
+            System.out.println("No negative numbers found");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array");
+        int n = sc.nextInt();
+        int a[] = new int[n];
+        System.out.println("Enter the elements of the array");
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+        System.out.println("choose the operation to be performed");
+        System.out.println("1. Find even numbers");
+        System.out.println("2. Find odd numbers");
+        System.out.println("3. Find negative numbers");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.print("Even numbers are : ");
+                findeven(a);
+
+                break;
+            case 2:
+                System.out.print("Odd numbers are : ");
+                findodd(a);
+
+                break;
+            case 3:
+                System.out.print("Negative numbers are : ");
+                findnegative(a);
+
+                break;
+            default:
+                System.out.println("Invalid choice");
+        }
+
+    }
+}
+
+
+
+=======================================================================================
+
+
+import java.util.Scanner;
+
+public class j {
+
+    static void Getpersoninfo(String name, int age) {
+
+        chekage(age);
+
+    }
+
+    static void chekage(int age) {
+
+        if (age < 27) {
+            System.out.println("You are young");
+        } else if (age < 50) {
+            System.out.println("You are middle aged");
+        } else {
+            System.out.println("You are old");
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = t.nextLine();
+        System.out.println("Enter your age: ");
+        int age = t.nextInt();
+        Getpersoninfo(name, age);
+
+    }
+}
+
+
+=======================================================================================
+import java.util.Scanner;
+
+public class j {
+
+    public static void sum() {
+        Scanner t = new Scanner(System.in);
+        int sum1 = 0;
+        for (int i = 0; i <= 10; i++) {
+            sum1 += i;
+        }
+        System.out.println("enter the value of the constatnt");
+        int sum2 = 0;
+        int constant = t.nextInt();
+        for (int i = 0; i <= 10; i++) {
+            sum2 += i + constant;
+        }
+        div1(sum1, sum2);
+
+    }
+
+    public static void div1(int s1, int s2) {
+        float div = (float) s1 / s2;
+        System.out.println("the value of division is " + div);
+
+    }
+
+    {
+
+    }
+
+    public static void main(String[] args) {
+
+        sum();
+
+    }
+}
+
+===================================================================================================
