@@ -1,0 +1,103 @@
+
+/* Q1: Write a program to input a 2D array from the Keyboard and print it in matrix form.
+*/
+import java.util.Scanner;
+
+public class j {
+    public static void main(String[] args) {
+
+        Scanner t = new Scanner(System.in);
+
+        int arr[][] = new int[3][3];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = t.nextInt();
+            }
+        }
+        System.out.println();
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+
+================================================================================
+/* Q2: Sum all items of second row only from 2D array
+*/
+public class j {
+    public static void main(String[] args) {
+
+        int arr[][] = { { 1, 2, 3 },
+                        { 4, 5, 6 },
+                        { 7, 8, 9, 10 } };
+
+        int sum = 0;
+        for (int i = 0; i < arr[1].length; i++) {
+            sum += arr[1][i];
+        }
+        System.out.println("Sum of second row: " + sum);
+    }
+}
+
+================================================================================
+/*Q3: Check if an Key=5 exists in the matrix. If yes, print its position(s)
+ */
+
+public class j {
+    public static void main(String[] args) {
+
+        int arr[][] = { { 1, 2, 3 , 5 },
+                        { 4, 5, 6 , 5 },
+                        { 7, 8, 9, 10 } };
+                        for ( int i = 0 ; i < arr.length;i++)
+                        {
+                            for ( int j = 0 ; j < arr[i].length;j++)
+                            {
+                                if ( arr[i][j] == 5)
+                                {
+                                    System.out.println("there's a 5 on " + i + "." + j);
+                                }
+                            }
+                        }
+    }
+}
+
+================================================================================
+/* Q4: create 2D array have 3*4, row represent student and columns represent Grads,do the following. 
+
+- Calculate each student's average 
+- Find the student with the highest total score
+*/
+public class j {
+    public static void main(String[] args) {
+
+        int arr[][] = { { 100, 20, 30, 50 },
+                        { 40, 50, 60, 50 },
+                        { 70, 80, 90, 100 } };
+
+        double highest = 0;
+        double highest_student = 0;
+        for (int i = 0; i < arr.length; i++) {
+            double avg = 0;
+            for (int j = 0; j < arr[i].length; j++) {
+                avg += arr[i][j] / 4.0;
+
+                if (highest < avg) {
+                    highest = avg;
+                    highest_student = i + 1;
+                }
+            }
+            System.out.println("Average of student " + i + " is: " + avg);
+        }
+        System.out.println("student " +  highest_student + " has the Highest average " + highest);
+    }
+}
+
