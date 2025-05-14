@@ -1,0 +1,127 @@
+637 647 🇱🇾🇮🇶, [5/10/25 12:02 PM]
+
+//Q1: Write a program to find and print duplicate characters in a string.
+public class j {
+
+    public static void main(String[] args) {
+
+
+        String str = "programmirng";
+
+        String[] charArray = str.split("");
+        int count = 0;
+
+        for (int i = 0; i < charArray.length; i++) {
+            count = 1;
+            for (int j = i + 1; j < charArray.length; j++) {
+                if (charArray[i].equals(charArray[j])) {
+                    count++;
+                    charArray[j] = "0"; // Replace duplicate with '0'
+                }
+            }
+            /* in case of 'r' the string will be like this "prog0ammi0ng" and count = 3 */
+            if (count > 1 && !charArray[i].equals("0")) { //  ما يقرأ الصفر والاحرف المتكررة
+                System.out.println("Duplicate character: " + charArray[i] + ", Count: " + count);
+            }
+        }
+
+
+
+    }
+}
+
+637 647 🇱🇾🇮🇶, [5/10/25 12:02 PM]
+
+//Q2: Write a program to count the number of words in a sentence.
+public class j {
+
+    public static void main(String[] args) {
+
+        String str = "hello i am taha";
+
+        String[] words = str.split("\\s+"); // ignors multiple spaces
+
+        System.out.println("Number of words in the sentence: " + words.length);
+
+    }
+}
+
+637 647 🇱🇾🇮🇶, [5/10/25 12:02 PM]
+
+public class j {
+
+    public static void main(String[] args) {
+
+        String str = "helloiamtaha";
+
+        String[] letters = str.split("");
+        for (int i = 0; i < letters.length; i++) {
+            if (i % 2 != 0) {
+                System.out.print(letters[i]);
+                System.out.print(" ");
+
+            }
+
+        }
+
+    }
+}
+
+637 647 🇱🇾🇮🇶, [5/10/25 12:02 PM]
+
+/*Write java program to read string array from keyboard then check word=”Ali”
+found or not in array */
+import java.util.Scanner;
+
+public class j {
+
+    public static void main(String[] args) {
+        Scanner t = new Scanner(System.in);
+        String str[] = new String[5];
+        System.out.println("Enter the elements of the array");
+        for (int i = 0; i < str.length; i++) {
+            str[i] = t.next();
+        }
+
+        boolean found = false;
+        for (String s : str) {
+            if (s.equals("Ali")) {
+                found = true;
+                break;
+            }
+        }
+
+        if (found) {
+            System.out.println("Word found in the array");
+        } else {
+            System.out.println("Word not found in the array");
+        }
+
+    }
+}
+
+637 647 🇱🇾🇮🇶, [5/10/25 12:03 PM]
+
+/*Q5: write java code to input from keyboard string =” Hello I love Iraq” change the
+word Hello with wellcom then remove all the spaces and print the final string. */
+import java.util.Scanner;
+
+public class j {
+
+    public static void main(String[] args) {
+        Scanner t = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = t.nextLine();
+        String words[] = str.split("\\s");
+
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].equals("Hello")) {
+                words[i] = "wellcom";
+            }
+        }
+        for (int i = 0; i < words.length; i++) {
+            System.out.print(words[i]);
+        }
+
+    }
+}
